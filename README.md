@@ -4,14 +4,14 @@
 
 ### Currently :
 
-Supervised Learning :
+#### Supervised Learning :
 
   - Implementation of ResNet34 and ResNet18 + model trained on cifar-10
     linked article : https://arxiv.org/pdf/1512.03385.pdf
     
   - Implementation of a convolutionnal neural network with numpy
   
-  ** TODO : **
+  **TODO :**
     - Add ResNe50 and +
     - Add vectorizaion of computation for convolution (numpy)
       linked article : https://arxiv.org/pdf/1501.07338.pdf
@@ -19,7 +19,7 @@ Supervised Learning :
     - Add numpy implementation in C++
     - Add numpy implementation in VHDL on a FPGA
     
-Unsupervised Learning :
+#### Unsupervised Learning :
 
   - Implementation of Auto-Encoder and VAE (Keras)
     linked article : https://arxiv.org/pdf/1312.6114.pdf
@@ -33,7 +33,7 @@ Unsupervised Learning :
   - Implementation of WGAN-GP
     linked article : https://arxiv.org/pdf/1704.00028.pdf
   
-  ** TODO : **
+  **TODO :**
     - Add FCC-GAN 
       linked article : https://arxiv.org/pdf/1905.02417.pdf
     - Add Adversarial VAE
@@ -41,7 +41,7 @@ Unsupervised Learning :
     - Generate new pokemon with VAE and FCC-GAN
     - Generate mask for thresholding with Auto Encoder
 
-Reinforcement Learning:
+#### Reinforcement Learning:
 
   - Implementation of Proximal policy optimisation + model trained on openAI gym Bipedal-Walker and pendulum
     linked article : https://arxiv.org/pdf/1707.06347.pdf
@@ -50,7 +50,7 @@ Reinforcement Learning:
 
   - Implementation of actor-critic
 
-  ** TODO : **
+  **TODO :**
     - Fix DDPG : https://arxiv.org/pdf/1509.02971.pdf
     - Add DQN  : https://arxiv.org/pdf/1312.5602.pdf
     - Train an agent on tetris with DQN
