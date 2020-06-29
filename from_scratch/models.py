@@ -19,6 +19,7 @@ class CNN():
         self.lr = lr
     
     def zero_grad():
+        # Empty buffer
         self.cache = 0
         self.conv1.empty()
         self.conv2.empty()

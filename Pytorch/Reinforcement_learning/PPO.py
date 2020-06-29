@@ -9,7 +9,6 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 from torch.distributions import Normal
-from IPython.display import clear_output
 import matplotlib.pyplot as plt
 from utils import compute_return,compute_advantage
 from models import ActorCritic
@@ -58,7 +57,7 @@ def test_env(vis=False):
     return total_reward
 
 
-def ppo_iter(mini_batch_size, states, actions, log_probs, returns, advantage):
+def generate_batch(mini_batch_size, states, actions, log_probs, returns, advantage):
     batch_size = states.size(0)
     for _ in range(batch_size // mini_batch_size):
         rand_ids = np.random.randint(0, batch_size, mini_batch_size)
@@ -70,7 +69,7 @@ def ppo_iter(mini_batch_size, states, actions, log_probs, returns, advantage):
 def ppo_update(ppo_epochs, mini_batch_size, states, actions, log_probs, returns, advantages, clip_param=0.2):
 
     for _ in range(ppo_epochs):
-        for state, action, old_log_probs, return_, advantage in ppo_iter(mini_batch_size, states, actions, log_probs, returns, advantages):
+        for state, action, old_log_probs, return_, advantage in generate_batch(mini_batch_size, states, actions, log_probs, returns, advantages):
             value = model.predict_value(state)
             entropy = model.get_dist(state).entropy().mean()
             new_log_probs = model.get_log_prob(state, action)
@@ -100,7 +99,6 @@ SIZES = [64]
 GAMMA = 0.99
 LAMBDA = 0.95
 EPSILON = 0.2
-#REWARD_ADAPTIVE_LR_THRESHOLD = -300
 REWARD_THRESHOLD = 190
 
 

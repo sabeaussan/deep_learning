@@ -22,7 +22,7 @@ class Fully_Connected:
 
 class ConvLayer():
     def __init__(self,nc_inputs,num_filters,kernel_size,stride=1,padding=0):
-        # TODO : add padding
+        # TODO : add padding, strides
         self.nc_inputs = nc_inputs
         self.num_filters =num_filters
         self.kernel_size = kernel_size
@@ -36,6 +36,11 @@ class ConvLayer():
         
     
     def backprop(self,dY):
+        """
+            Backpropagation of gradient
+            dY : global gradient
+            return new global grad and store local grad
+        """
         grad = np.zeros(self.cache.shape)
         self.dW = np.zeros((self.num_filters,self.nc_inputs,self.kernel_size,self.kernel_size))
         flipped_kernels = np.flip(self.kernels,axis=(2,3))
@@ -54,6 +59,7 @@ class ConvLayer():
         return grad
         
     def compute_size(self,input_image):
+        # Compute output size
         h_in, w_in = input_image.shape[2:4]
         self.h_out = (h_in - (self.kernel_size - 1) -1 )/self.stride +1
         self.h_out = np.floor(self.h_out).astype(int)
@@ -62,6 +68,7 @@ class ConvLayer():
 
 
     def generate_patch(self,input_image,kernel_size,stride,bound):
+        # generate patch which will be multiplied with conv filters
         start_x = 0
         start_y = 0
         for x in range(bound):
@@ -75,6 +82,7 @@ class ConvLayer():
                 yield image_patch,x,y
     
     def forward(self, inputs):
+        # Forward input
         self.compute_size(inputs)
         self.cache = inputs
         feature_maps = np.zeros((inputs.shape[0],self.num_filters,self.h_out,self.w_out))
@@ -100,6 +108,10 @@ class MaxPooling():
         self.cache = 0
         
     def backprop(self,global_grad):
+        """
+            Backpropagation of gradient
+            global_grad : global gradient
+        """
         a = 0
         b = 0
         start_x = 0
@@ -120,6 +132,7 @@ class MaxPooling():
                             
         
     def compute_size(self,input_image):
+        # Compute output size
         h_in, w_in = input_image.shape[2:4]
         self.h_out = (h_in - (self.size - 1) -1 )/self.stride +1
         self.h_out = np.floor(self.h_out).astype(int)
@@ -128,6 +141,7 @@ class MaxPooling():
     
     
     def generate_patch(self,input_image):
+        # generate patch which will be multiplied with conv filters
         start_x = 0
         start_y = 0
         self.compute_size(input_image)

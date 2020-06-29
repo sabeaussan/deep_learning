@@ -5,7 +5,6 @@ import torch
 import function as F
 
 # Train CNN on MNIST
-
 BATCH_SIZE = 64
 
 test_loader = torch.utils.data.DataLoader(
@@ -26,9 +25,10 @@ loss_history = []
 lr = 0.3
 conv_net = CNN(OUTPUT_DIM,lr)
 
+
+# Training 
 for e in range(EPOCH):
     correct = 0
-    #test(conv_net,e)
     for batch_idx, (data, targets) in enumerate(test_loader):
         print(batch_idx)
         input_data = data.numpy()

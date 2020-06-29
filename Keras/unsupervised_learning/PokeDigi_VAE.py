@@ -1,6 +1,4 @@
 from models import Encoder,Decoder,VariationnalAutoEncoder
-from keras.datasets import mnist
-import matplotlib.pyplot as plt
 from utils import create_training_data
 
 
@@ -12,7 +10,7 @@ random.shuffle(training_data)
 training_data = np.array(training_data)
 training_data =training_data/ 255.0 
 
-
+# Create encoder
 enc = Encoder(
     (64,64,3),
     4,
@@ -25,6 +23,7 @@ enc = Encoder(
     True
 )
 
+# Create decoder
 dec = Decoder(
     4,
     [64,64,32,3],

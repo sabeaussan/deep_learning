@@ -52,6 +52,7 @@
 
   #### TODO :
     - Fix DDPG : https://arxiv.org/pdf/1509.02971.pdf
+    - Add SAC
     - Add DQN  : https://arxiv.org/pdf/1312.5602.pdf
     - Train an agent on tetris with DQN
     - Add GridWorld with Tabular Q-Learning

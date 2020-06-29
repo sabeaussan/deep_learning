@@ -10,11 +10,6 @@ import torch.nn.functional as F
 
 #TODO : soft + hard update
 
-# Batch norm -> permet de réuire l'influence de la différence entre les vecteurs d'observation de différent env
-# donc permet de mieux généraliser
-
-
-
 # Hyper-parameters
 UPDATE_EPOCH = 20
 SIZES = [32]
