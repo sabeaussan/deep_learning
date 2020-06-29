@@ -11,7 +11,7 @@
     
   - Implementation of a convolutionnal neural network with numpy
   
-  **TODO :**
+  #### TODO :
     - Add ResNe50 and +
     - Add vectorizaion of computation for convolution (numpy)
       linked article : https://arxiv.org/pdf/1501.07338.pdf
@@ -33,7 +33,7 @@
   - Implementation of WGAN-GP
     linked article : https://arxiv.org/pdf/1704.00028.pdf
   
-  **TODO :**
+  #### TODO :
     - Add FCC-GAN 
       linked article : https://arxiv.org/pdf/1905.02417.pdf
     - Add Adversarial VAE
@@ -50,7 +50,7 @@
 
   - Implementation of actor-critic
 
-  **TODO :**
+  #### TODO :
     - Fix DDPG : https://arxiv.org/pdf/1509.02971.pdf
     - Add DQN  : https://arxiv.org/pdf/1312.5602.pdf
     - Train an agent on tetris with DQN
